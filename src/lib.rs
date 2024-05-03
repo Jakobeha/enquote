@@ -46,7 +46,7 @@ pub fn unquote(s: &str) -> Result<String, Error> {
         return Err(Error::UnrecognizedQuote);
     }
 
-    if s.chars().last().unwrap() != quote {
+    if s.chars().next_back().unwrap() != quote {
         return Err(Error::UnexpectedEOF);
     }
 
